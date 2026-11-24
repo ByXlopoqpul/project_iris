@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<title>Заказать Дони на дом</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body { margin: 0; font-family: Arial, sans-serif; background: #111; color: #fff; text-align: center; }
+		#content { max-width: 420px; margin: 0 auto; padding: 20px; }
+		h1 { font-size: 24px; }
+		.photo { width: 100%; border-radius: 12px; display: block; margin: 12px 0; }
+		.badge { color: #ffd54a; font-weight: bold; }
+		button { background: #e53935; color: #fff; border: 0; border-radius: 10px;
+			font-size: 20px; padding: 16px 24px; width: 100%; cursor: pointer; }
+		#scareImage { display: none; position: fixed; inset: 0; background: #000; z-index: 9999; }
+		#scareImage img { width: 100%; height: 100%; object-fit: cover; }
+	</style>
+</head>
+<body>
+	<div id="content">
+		<h1>Заказать Дони на дом</h1>
+		<p class="badge">🏆 Монстр среди ситхов</p>
+		<img class="photo" src="danik.png" alt="">
+		<p>Доставка бесплатно. Осталось 2 места на сегодня!</p>
+		<button onclick="jumpScare()">Заказать сейчас</button>
+	</div>
+
+	<div id="scareImage">
+		<img src="scare.jpg" alt="">
+	</div>
+	<audio id="audio" src="scream2.mp3" preload="auto" playsinline></audio>
+
+	<script>
+		function jumpScare() {
+			var audio = document.getElementById("audio");
+			audio.muted = false;
+			audio.volume = 1;
+			audio.currentTime = 0;
+			audio.play().catch(function () {});
+			document.getElementById("scareImage").style.display = "block";
+			if (navigator.vibrate) navigator.vibrate(300);
+		}
+	</script>
+</body>
+</html>
